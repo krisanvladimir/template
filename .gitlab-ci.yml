@@ -1,0 +1,28 @@
+stages:
+  - lint
+  - publish
+
+lint-package:
+  image: node:14.17.5
+  stage: lint
+  script:
+    - npm ci
+    - npm run lint
+  tags:
+    - docker
+
+publish-package:
+  image: node:14.17.5
+  stage: publish
+  only:
+    - main
+  dependencies:
+    - lint-package
+  script:
+    - npm install
+    - CI=false npm run prepare
+    - npm publish
+  when: manual
+  tags:
+    - docker
+

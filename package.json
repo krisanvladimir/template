@@ -1,0 +1,106 @@
+{
+  "name": "@niga9l/ui-kit",
+  "version": "1.0.0",
+  "description": "Библиотека компонентов (ui-kit)",
+  "scripts": {
+    "test": "npm run lint && jest",
+    "build": "rollup -c",
+    "start": "rollup -c -w && npm run prettier-watch",
+    "prettier-watch": "onchange 'src/**/*' -- prettier --write {{changed}}",
+    "lint": "eslint src/**/* --ext .ts,.tsx --fix",
+    "storybook": "start-storybook -p 6006",
+    "prepare": "npm run build",
+    "build-storybook": "build-storybook",
+    "patch": "npm version patch",
+    "publish:lib": "npm publish"
+  },
+  "publishConfig": {
+    "@niga9l:registry": "https://github.com/api/v4/projects/<project_ID>/packages/npm/"
+  },
+  "engines": {
+    "node": ">=14",
+    "npm": ">=6"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "typings": "dist/index",
+  "author": "Niga9L <lyaginvanya@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-url": "^6.1.0",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-docs": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-knobs": "^6.3.0",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/react": "^6.3.7",
+    "@svgr/rollup": "^5.5.0",
+    "@types/jest": "^27.0.1",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "@types/storybook__addon-info": "^5.2.4",
+    "@types/storybook__addon-knobs": "^5.2.1",
+    "@types/storybook__react": "^5.2.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-flowtype": "^5.9.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^27.0.6",
+    "onchange": "7.1.0",
+    "postcss": "^8.3.6",
+    "postcss-import": "^14.0.2",
+    "prettier": "^2.3.2",
+    "prettier-config": "^1.0.0",
+    "react": "^17.0.2",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^17.0.2",
+    "rollup": "^2.56.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-jest": "^27.0.5",
+    "tslib": "^2.3.1",
+    "typescript": "^4.3.5",
+    "webpack-blocks": "^2.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --max-warnings=0"
+    ]
+  },
+  "dependencies": {}
+}
